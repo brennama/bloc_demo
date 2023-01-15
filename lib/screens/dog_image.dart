@@ -18,6 +18,7 @@ class DogImageScreen extends StatelessWidget {
           builder: (context, state) {
             return Scaffold(
               floatingActionButton: FloatingActionButton(
+                backgroundColor: Colors.green,
                 onPressed: () {
                   // Looks up the widget tree and finds the bloc (in this case
                   // it's just been provided above with our BlocProvider).
@@ -26,13 +27,15 @@ class DogImageScreen extends StatelessWidget {
                 child: const Icon(Icons.add),
               ),
               appBar: AppBar(
-                title: const Text('Dog Images!'),
+                backgroundColor: Colors.green,
+                title: const Text('Cute Frogs Drinking Bubble Tea'),
               ),
               body: Center(
                 child: Builder(
                   builder: (_) {
                     if (state is DogImageInitialState) {
-                      return const Text('Click the button to see a random dog image');
+                      return const Text('Click the button to see an AI generated image of a frog drinking bubble tea',
+                      textAlign: TextAlign.center,);
                     } else if (state is DogImageLoadingState) {
                       return const CircularProgressIndicator();
                     } else if (state is DogImageLoadedState) {
